@@ -1,4 +1,4 @@
-# Nutrient Agent — Everyday Food Support & AI Nutrition Companion 🥗
+Nutrient Agent — Everyday Food Support & AI Nutrition Companion 
 
 > **Practical, personal, pressure-free food guidance built on deterministic, science-backed nutritional calculations.**
 
@@ -6,35 +6,34 @@ Inspired by modern editorial aesthetics with a warm linen palette, terracotta ac
 
 ---
 
-## 🌟 Key Features
+ Key Features
 
-### 1. 📊 Deterministic Metabolic & Target Engine
+ 1. Deterministic Metabolic & Target Engine
 - **Calculations**: Precision Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE) based on age, sex, weight, height, and activity level.
 - **Macronutrient Splits**: Scientifically balanced protein, carb, and fat goals adjusted for weight loss, maintenance, or muscle gain.
 - **Micro-Targeting**: Daily water intake, minimum daily fiber benchmarks, and caloric targets.
 
-### 2. 📅 7-Day Weekly Meal Scheduling & Smart Plan Feed
-- **Dynamic Weekly Feed**: Generates a varied 7-day meal plan (Breakfast, Lunch, Evening Snack, Dinner) tailored to cultural dietary preferences (Vegetarian, Non-Vegetarian, Vegan, Eggetarian).
-- **Macro Breakdowns per Day & Meal**: Every meal card displays exact calorie counts, grams of protein, portion sizes, and preparation tips.
-- **Instant Logging**: One-click logging from planned meal slots directly into today's food intake log.
+ 2. 7-Day Weekly Meal Scheduling & Smart Plan Feed
+- Dynamic Weekly Feed**: Generates a varied 7-day meal plan (Breakfast, Lunch, Evening Snack, Dinner) tailored to cultural dietary preferences (Vegetarian, Non-Vegetarian, Vegan, Eggetarian).
+- Macro Breakdowns per Day & Meal**: Every meal card displays exact calorie counts, grams of protein, portion sizes, and preparation tips.
+- Instant Logging**: One-click logging from planned meal slots directly into today's food intake log.
 
-### 3. 🛒 Aggregated Supermarket Grocery Hauls
-- **Automated Aggregation**: Traverses the entire 7-day meal plan and tallies raw ingredient quantities.
-- **Aisle Categorization**: Automatically groups ingredients into store aisles (Fresh Produce, Dairy & Protein, Grains & Staples, Nuts & Snacks, Spices & Pantry).
-- **Checklist Persistence**: Interactive check-off system saved locally in `localStorage` for stress-free grocery shopping.
+3. Aggregated Supermarket Grocery Hauls
+- Automated Aggregation**: Traverses the entire 7-day meal plan and tallies raw ingredient quantities.
+- Aisle Categorization**: Automatically groups ingredients into store aisles (Fresh Produce, Dairy & Protein, Grains & Staples, Nuts & Snacks, Spices & Pantry).
+- Checklist Persistence**: Interactive check-off system saved locally in `localStorage` for stress-free grocery shopping.
 
-### 4. 💬 Grounded AI Nutrition Coach & Chat
-- **RAG & Tool Calling**: Answers questions grounded in verified nutritional science and Indian food composition data (IFCT / USDA).
-- **Context-Aware Recommendations**: Offers practical meal substitutions, macro adjustments, and pressure-free habit coaching.
-
-### 5. ⚡ Natural Language Food Logging & Image Analysis
-- **Smart Parsing**: Type natural meals like *"2 rotis with paneer sabzi and 1 cup curd"* and automatically resolve matched items, portion grams, calories, and macros.
-- **Quick Logging Chips**: One-tap logging for common daily items.
-- **Visual Food Analysis**: Upload food photos for automatic nutrient breakdown suggestions.
+4. Grounded AI Nutrition Coach & Chat
+- RAG & Tool Calling**: Answers questions grounded in verified nutritional science and Indian food composition data (IFCT / USDA).
+- Context-Aware Recommendations**: Offers practical meal substitutions, macro adjustments, and pressure-free habit coaching.
+ 5. Natural Language Food Logging & Image Analysis
+- Smart Parsing**: Type natural meals like *"2 rotis with paneer sabzi and 1 cup curd"* and automatically resolve matched items, portion grams, calories, and macros.
+-Quick Logging Chips**: One-tap logging for common daily items.
+- Visual Food Analysis**: Upload food photos for automatic nutrient breakdown suggestions.
 
 ---
 
-## 🛠️ Architecture & Tech Stack
+🛠️ Architecture & Tech Stack
 
 ```
                                   ┌───────────────────────────┐
@@ -94,64 +93,6 @@ Frontend will be running at `http://localhost:5173`.
 - **Password**: `demo1234`
 
 ---
-
-## 🌐 Deployment Guide (Vercel & Cloud)
-
-### Frontend Deployment on Vercel
-
-1. **Option A: Vercel CLI (Recommended)**
-   ```bash
-   cd frontend
-   npm run build
-   npx vercel
-   ```
-2. **Option B: GitHub / Vercel Web Dashboard**
-   - Import your repository on [vercel.com](https://vercel.com).
-   - Set **Root Directory** to `frontend` (or keep root with `vercel.json` already provided in the repository).
-   - Set **Framework Preset** to `Vite`.
-   - Build Command: `npm run build`
-   - Output Directory: `dist`
-
-3. **Environment Variables on Vercel**:
-   Add the following under **Project Settings > Environment Variables**:
-   ```ini
-   VITE_API_URL=https://your-backend-service.onrender.com
-   ```
-   *(If not set, the frontend defaults to `/api` proxy rewrites configured in `vercel.json`)*.
-
----
-
-### Backend Deployment (Render / Railway / Fly.io / Docker)
-
-The FastAPI backend is fully container-ready and WSGI/ASGI compatible.
-
-#### Deploying on Render / Railway:
-- **Build Command**: `pip install -r backend/requirements.txt`
-- **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-- **Root Directory**: `backend`
-- **Environment Variables**:
-  ```ini
-  SECRET_KEY=your-secure-random-secret-key-32-chars-minimum
-  ENVIRONMENT=production
-  DATABASE_URL=sqlite:///./nutrition.db  # Or postgresql://user:pass@host/dbname
-  ```
-
----
-
-## 🧪 Testing
-
-### Backend Unit & Integration Tests
-```bash
-cd backend
-PYTHONPATH=. pytest
-```
-*Current test suite: 19 unit & endpoint test cases passing.*
-
-### Frontend Production Build Validation
-```bash
-cd frontend
-npm run build
-```
 
 ---
 
